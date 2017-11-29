@@ -1,0 +1,34 @@
+	   h1{
+	    font-size: 1.4em;
+        text-align: center;
+		font-family: 'Fjalla One', sans-serif;
+		font-weight: 400;
+		text-transform: uppercase;
+	  }
+	   h3{
+	    font-size: 0.9em;
+        text-align: justify;
+		font-family: 'Nunito', sans-serif;
+		font-weight: 400;
+		width:80%;
+		padding:20px;
+		margin:auto;
+	  }
+	  h2{
+	    font-size: 0.9em;
+        text-align: justify;
+		font-family: 'Nunito', sans-serif;
+		font-weight: 400;
+		width:50%;
+		padding:20px;
+		margin:auto;
+	  }
+	 font{
+	 font-family: 'Nunito', sans-serif;
+	 font-size: 1.2em;
+	 color: #820333;
+	 font-weight: 800;
+	 }
+	 ul.a {
+    list-style-type: circle;
+	}

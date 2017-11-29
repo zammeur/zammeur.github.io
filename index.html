@@ -1,0 +1,257 @@
+<DOCTYPE html>
+  <html>
+  <head>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
+    <script type="text/javascript" src="jquery.fullPage.js"></script>
+	<!--  css style-->
+	<link rel="stylesheet" type="text/css" href="death_row_style.css">
+	<!--  end css style-->
+	<!--  Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<!--  end Google font-->
+	<!--  data Maps-->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	  <script src="https://datamaps.github.io/scripts/0.4.4/datamaps.usa.min.js"></script>
+	  <script src="https://datamaps.github.io/scripts/0.4.4/datamaps.world.min.js"></script>
+	<!--  End data Maps-->
+	<!--  wordcloud-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.3/vega-lite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.31/vega.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.14/vega-embed.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.js"></script>
+	<!--  end wordcloud-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<!--  Nav menu-->
+    <script type="text/javascript">
+  		var headerColor = '#ddd',
+  			contentColor = '#fff';
+
+  		$(document).ready(function() {
+  			$('#fullpage').fullpage({
+  				anchors: ['Home','Intro','World', 'USA', 'Execution Each Year', 'People Executed Since 1976', 'Gender', 'Age', 'Race', 'Methods Of Execution', 'Failures - Lethal Injecions', 'Cost Of Capital Punishment', 'Zoom On Texas', 'Last Words - Wordcloud', 'Last Words - Stong Words','Last Meals','Time Between Sentencing and Execution', 'Reasons Of Exoneration', 'Exonerated People', 'Public Opinion'],
+  				sectionsColor: [contentColor,contentColor,contentColor, contentColor, headerColor, contentColor, contentColor, contentColor, contentColor, contentColor, contentColor, contentColor, contentColor],
+  				navigation: true,
+  				navigationPosition: 'right',
+  				navigationTooltips: ['Home','Intro','World', 'USA', 'Execution Each Year', 'People Executed Since 1976', 'Gender', 'Age', 'Race', 'Methods Of Execution', 'Failures - Lethal Injecions', 'Cost Of Capital Punishment', 'Zoom On Texas', 'Last Words - Wordcloud', 'Last Words - Stong Words','Last Meals','Time Between Sentencing and Execution', 'Reasons Of Exoneration', 'Exonerated People', 'Public Opinion'],
+                scrollOverflow:true,
+				scrollHorizontally: true
+  			});
+  		});
+  		</script>
+
+  </head>
+  <body>
+
+  <div id="fullpage">
+  
+  <!--  Title ---------------------------------------------------------------->
+  	<div class="section" style="text-align: center">
+			<img src="title.svg" width="80%" />		
+	</div>
+  <!--  intro ---------------------------------------------------------------->
+  	<div class="section" style="text-align: center">
+			<h1>Disclaimer</h1>
+			<h3 style="width:50%">We’ve been conducting this analysis for several weeks. All the data we used comes from trusted, reliable and open sources (TDCJ and DPIC1). The study starts in 1972 and is focused on the death penalty landscape in the United States of America. We tried not to take sides for or against death penalty. Our ambition was to shed light on that controversial, sometimes distorted topic, thanks to thorough data-driven methodology. Should you have any question or comment, drop us a line at partnersincrime@telecom-paristech.fr. </h3>	
+	</div>
+   <!--  World ------------------------------------------------------------->
+    <div class="section" style="text-align: center">
+        <h1>Death Penalty Around The World</h1>
+		<h3>    Today, death penalty exists - legally or in practice - in almost 1 country out of 4.
+				There are <font> 52 countries </font> in which you can be executed, for very diverse reasons.
+				On top of that list, you won’t be surprised: China, Iran, Saudi Arabia, Iraq…
+				Countries with limited freedom, that most likely classify official numbers of executions.
+				But surprisingly, the United States is the <font> 5th country and only democracy of that list </font>.
+		</h3>
+		<div id="mapMonde" style="position: relative; width: 600px; height: 450px; display: inline-block "></div>
+    </div>
+  <!--  USA---------------------------------------------------------------->
+    <div class="section" style="text-align: center">
+		<h1>Death Penalty in the US</h1><br><br>
+		<h3>Even within the United States, there are some discrepancies: 31 States still apply death penalty.
+			As the above map shows, the southern part of the country has the highest numbers of executions since 1976.
+			Texas culminates with <font> 545 killed people in 40 years </font>.
+		</h3>
+		<div id="mapUsa" style="position: relative; width: 800px; height: 400px; display: inline-block ; vertical-align: middle"></div>
+	</div>
+  <!--  Timeline Exec. ---------------------------------------------------------------->
+  	<div class="section" style="text-align: center">
+			<h1>Total Number of People Executed Each Year</h1>
+			<h3>Each year, since 1980, multiple people are executed by an American court.
+				Oddly enough, the number of executions has increased in the 90s to spike <font>in 1999 with 98 executions</font>, among which 35 took place in Texas.
+				Since then, it has decreased at a near continuous pace.
+			</h3>
+			<img src="timeline_exec.svg" width="100%" />
+			
+	</div>
+   <!--  Square Exec. ---------------------------------------------------------------->
+	<div class="section" style="text-align: center">
+			<h1>Total Number of People Executed Since 1976 </h1>
+			<h3>Since the Supreme court reaffirmed the legality of capital punishment in 1976, <font> 1465 people have been executed.</font></h3>
+			<img src="total_exec.svg" width="50%" />
+	</div>
+  <!--  Gender ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Who are Those People?</h1>
+		<h1>- Gender -</h1>
+		<h3>Gender-wise, there is a very clear bias that favors women.
+			They represent approximately <font> 1% of criminals sentenced to death </font>, due to the perception of their weakness and apathy.
+			The 16 women that have been executed since 1976 did not fit the wife-and-mother stereotype that society usually attributes to women -
+			they were all women of color or lesbians - which questions the impartiality of the Courts.
+		</h3>
+		<img src="gender.svg" width="50%" />
+	</div>
+  <!--  Age ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Who are Those People?</h1>
+		<h1>- Age -</h1>
+		<h3> The median age of an executed prisoner is <font> 40 years old </font>.
+				Considering that death-row inmates typically wait a decade before their execution, those figures point out that prisoners sentenced to death are rather young.
+		</h3>	
+		<div id="age" style="position: relative; width: 800px; height: 400px; display: inline-block; vertical-align: middle"></div>
+	</div>
+   <!--  Race ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">	
+		<h1>Who are Those People?</h1>
+		<h1>- Race -</h1>
+			<h3> The racial bias has also been raised by several studies: almost half of the executed defendants are from ethnic minorities.
+					People of color have accused a disproportionate execution rate compared to their percentage in the total population.
+					<font>Afro-Americans account for 34.5%</font> of executions whereas they represent 12% of the population since the 1970s.
+					Many studies denote that the color of the victim has a huge impact on the decision of the Court.
+					<font>A Black defendant with a White victim is 14 times more likely to be executed than a White defendant with a Black victim</font>.
+			</h3>
+			<img src="race.svg" width="50%" />
+	</div>
+  <!--  Methods of Executions ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Methods Of Execution</h1>
+		<h3>The means of execution have evolved over time, always in a perspective of finding a more humane, painless and dignified method. The lethal injection has been introduced in 1977 and is, since then, the most common execution method. The United States has been firmly criticized for the use of electrical chair until the Supreme Court ruled it unconstitutional. </h3>
+		<img src="methodexec.svg" width="50%" />
+	</div>
+  <!--  Methods of Executions - Failure ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Methods Of Execution</h1>
+		<h1>- Failures -</h1>
+		<h3> Even if <font> lethal injection</font> is now the most common method, it has <font> the highest fail rate </font> (approximately 7.16%).
+				Medical ethics prevent doctors from performing executions which explains why this controversial gesture is accomplished <font> by non medical carceral personnel </font>, thus leading to a high rate of failure.
+				In those cases, inmates are dying for long minutes.
+				Those botched executions gave rise to arguments against death penalty.  
+		</h3>
+		<img src="methodfail.svg" width="50%" />
+	</div>
+  <!--  Cost Exec. ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Cost Of Capital Punishment</h1>
+		<h2>The cost of capital punishment is often denounced by death penalty opponents. <font>California could have spent $4bn</font> on capital punishment since 1978, a mere <font>$308M for each of the 13 executions</font> carried out since then. Other studies reveal that other types of punishment (such as lifetime incarceration) would cost 70% less. 
+		</h2>
+	</div>
+   <!--  zoom on Texas ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">
+		<h1>Zoom on Texas</h1>
+		<h3>Texas is by far the deadliest State of the country.
+			<font> 545 inmates have been executed </font> in 40 years, meaning a pace of 1 execution per month.</h3>
+		<img src="texasexec.svg" width="35%" />
+	</div>
+   <!--  wordcloud ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Zoom on Texas</h1>
+		<h1>- Last Words -</h1>
+		<h3>As you might know, some people can attend executions.
+			Very often, the victim and the prisoner’s families are present, as well as volunteer witnesses.
+			The last words pronounced by the death-row inmate are recorded.
+			Texas has made these statements public, allowing us to perform a text-mining analysis using R language.
+			The above cloud shows the most often used words before the offender is put to death.
+		</h3>
+		<div id="wordCloud" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle"></div>
+	</div>
+   <!--  barPlot "strong words" ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Zoom on Texas</h1>
+		<h1>- Last Words -</h1>
+		<h3>We’ve gathered the last words of sentenced to death into 4 categories, based on the occurrence of the words in their speeches:
+			  <font> Religion </font>: many death-row people invoke God and have a spiritual last statement: “I pray that the Lord takes care of me” - “May Jesus Christ see my spirit”
+			  <font> Love and family </font>: as families often attend the executions, defendants talk to them: “to my mother and my family, I love you”
+			  <font> Peace and forgiveness </font>: “I want to say I’m sorry for the pain I’ve caused you people. I’m sorry I can’t bring everybody back.”
+			  <font> Innocence </font>: “all I want to say is that I’m innocent”
+		</h3>
+		<div id="barPlotWords" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle"></div>
+	</div>   
+   <!--  food ---------------------------------------------------------------->
+    <div class="section" style= "text-align: center">
+			<h1>Zoom on Texas</h1>
+			<h1>- Last Meals -</h1>
+			<h3>An American unspoken rule grants death-row inmates the opportunity to order whatever they want for their last meal. Huntsville's prison in Texas is famous for its flexibility regarding the choice of that famous last meal. Prisoners usually order typical American food: fries, cheeseburger, T-bone steak… reminding us that no matter what happened, they’re still humans. </h3>
+			<img src="food.svg" width="50%" />
+		</div>
+   <!--  Waiting time ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Time Between Sentencing and Execution</h1>
+		<h3>It can talk up to 10 years to enforce capital punishment law.
+			<font>The average time spent in the death row has increased over years</font>, due to three main factors.
+			First, the Courts have to double check a long list of factors to make sure they don’t kill innocents.
+			Second, the process of appeals includes nine step that each take a long time.
+			Third, the United States have faced a drug shortage due to the resistance of pharmaceutical companies.
+		</h3>
+		<div id="timeSentenceExec" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle"></div>
+	</div>
+   <!--  Exoneration reasons ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Exoneration</h1>
+		<h1>- Reasons -</h1>
+		<h3>Death-row inmates often fight for years to push the Court to withdraw the capital sentence. This process is rarely successful, it gives them more time, at most. Yet, some prisoners are exonerated from the punishment, for 3 main reasons: either they’re pardoned, acquitted, or the charges are dismissed. </h3>
+		<div id="exoneration" style="position: relative; width: 800px; height: 400px; display: inline-block; vertical-align: middle"></div>
+	</div>
+   <!--  Exoneration total ---------------------------------------------------------------->
+	<div class="section" style= "text-align: center">	
+		<h1>Exoneration</h1>
+		<h1>- Exonerated People-</h1>
+			<h3>Those cases remain rare, but still significant: <font>120 people have been exonerated</font>, a percentage of 8.2 of total executions since 1982. 
+
+			</h3>
+			<img src="exoneration.png" width="50%" />
+	</div>
+
+   <!--  Public Opinions ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Public Opinions</h1>
+		<h3>America’s opinion on death penalty has always been grounds for division. Republicans tend to support it while Democrats put efforts to end it. Although the latter is at its highest levels since 1972, opponents of death penalty have always been in minority (41% in 2017). The opposition to death penalty is consistent with the number of executions per year. We shall note that death penalty sees a growing support in the 90s while the number of executions increase accordingly.  Since then, both figures follow a declining trend. </h3>
+		<div id="opinionline" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle"></div>
+	</div>
+   <!--  sources ---------------------------------------------------------------->
+   	<div class="section" style= "text-align: center">
+		<h1>Sources</h1>
+		<h3>We’d like to warmly thank our Professor Samuel Huron who’s been mentoring us on that project, as well as the indirect help from all those sources:<br>
+			Data Sets:<br>
+			<ul class="a">
+			<li><a href="https://www.tdcj.state.tx.us/">Texas Department of Criminal Justice</a></li>
+			<li><a href="https://deathpenaltyinfo.org/">Death Penalty Information Center</a></li>
+			</ul>
+			Additional informations:<br>
+			<ul class="a">
+			<li><a href="https://deathpenaltyinfo.org/node/5772">Austin Sarat, "Gruesome Spectacles: Botched Executions and America's Death Penalty" (Stanford Univ. Press 2014)</a></li>
+			<li>Carol J. Williams, Los Angeles Times, “Death penalty costs California $184 million a year, study says”, June 2011</li>
+			<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1767508">S. Shatz and N. Shatz, "Chivalry is Not Dead: Murder, Gender, and the Death Penalty, Berkeley Journal of Gender, Law & Justice, February 2013</a></li>
+			<li>The American Civil Liberties Union</li>
+			<li><a href="https://www.amnestyusa.org/issues/death-penalty/death-penalty-facts/death-penalty-cost/">Amnesty International, Death Penalty Cost</a></li>
+			</ul>	 
+		</h3>
+		<div id="opinionline" style="position: relative; width: 600px; height: 300px; display: inline-block; vertical-align: middle"></div>
+	</div>
+	
+	<!--  External Js - Vizualisations -->
+	<script src="timeSentenceExec.js"></script>
+	<script src="mapMonde.js"></script>
+	<script src="mapUsa.js"></script>
+	<script src="barPlotWords.js"></script>
+	<script src="wordCloud.js"></script>
+	<script src="age.js"></script>
+	<script src="exoneration.js"></script>
+	<script src="opinionline.js"></script>
+  </body>
+  </html>
