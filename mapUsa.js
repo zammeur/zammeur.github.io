@@ -18,7 +18,7 @@
           ],
           colorbar: {
               title: 'Number of Executions since 1976',
-              thickness: 0.5
+              thickness: 15
           },
           marker: {
               line:{
