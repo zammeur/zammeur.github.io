@@ -5,7 +5,7 @@ var trace1 = {
 7,15,13,12,2,4,5,2,1,2,3,1,1,1], 
   type: 'scatter',
   name: 'Executed Prisonners',
-  line:{color:'rgb(240,67,58)'}
+  line:{color:'#820333'}
 };
 
 var trace2 = {
@@ -13,7 +13,7 @@ var trace2 = {
   y: [54],
   mode: 'markers',
   marker: {
-    color: '#820333',
+    color: 'rgb(240,67,58)',
     size: 12
   },
   name: 'Median Age'

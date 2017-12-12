@@ -2,7 +2,8 @@
   x: ['Love', 'Family', 'Thank', 'Sorry','God','Life','Forgive','Hope','Lord','Peace'],
   y: [700, 314, 262, 245, 205, 153, 144, 143, 141, 105],
   type: 'bar',
-  width: [0.4, 0.4, 0.4, 0.4, 0.4,0.4,0.4,0.4,0.4,0.4]
+  width: [0.4, 0.4, 0.4, 0.4, 0.4,0.4,0.4,0.4,0.4,0.4],
+  marker:{color:'#820333'}
 }];
 
 var layout = {

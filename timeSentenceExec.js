@@ -5,7 +5,7 @@
           mode: 'lines',
           name: 'Red',
           line: {
-            color: 'rgb(219, 64, 82)',
+            color: '#820333',
             width: 2
           }
           };
