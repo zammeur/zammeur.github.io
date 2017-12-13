@@ -3,7 +3,11 @@
   values: [55, 103, 7],
   labels: ['Acquitted', 'Charge Dismissed', 'Pardoned'],
   hole: .4,
-  type: 'pie'
+  type: 'pie',
+  marker: {
+	  colors : ['#820333', '#540133', '#C9283D']
+	  
+  }
 }];
 
 var layout = {
