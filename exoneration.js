@@ -1,4 +1,3 @@
-
   var data = [{
   values: [55, 103, 7],
   labels: ['Acquitted', 'Charge Dismissed', 'Pardoned'],
@@ -16,4 +15,3 @@ var layout = {
 };
 
 Plotly.newPlot('exoneration', data, layout, {displayModeBar: false});
-
